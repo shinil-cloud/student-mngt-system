@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register User</title>
+	
+	
+	
+	
+	
+</head>
+<body><center>
+    <h3>Register Form</h3>
+    <hr/>
+	
+	<ul class="messages">
+		{% for msg in messages %}
+	 <li>
+	 <div class="alert alert-{{msg.level_tag}}" role="alert">
+	 <div class="alert alert-{{msg.level_tag}}" role="alert">
+		{{msg.message}}
+		 {% endfor %}
+	</div>
+	</li>
+	
+    <!--{% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+	-->
+    <form method="post" action="" novalidate>
+        {% csrf_token %}
+		
+		
+		{% for fm in form %}
+		{{fm.label_tag}}  {{fm}} {{fm.errors|striptags}}</br></br>
+		{% endfor %}
+		
+		
+		
+		
+		
+        <input type="submit" name="submit" class="btn btn-success btn-md" value="submit"></br></br></br>
+		
+	if you have already have an account?	<a href="{% url 'login' %}">Login</a>
+		
+    </form>
+</body>
+</html>

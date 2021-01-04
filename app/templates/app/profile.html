@@ -1,0 +1,84 @@
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Card</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+
+ 
+	
+		</br></br></br></br></br>
+		
+		
+			<p align="center">
+		
+			
+			<a href="{% url 'add'%}" class="btn btn-success">Add New Members</a>
+			<a href="{% url 'logout'%}" class="btn btn-danger">Logout</a>
+			</p>
+
+	
+	
+	
+	
+	
+	<table class="table table-bordered">
+	
+			
+  <thead>
+    <tr>
+     
+      <th scope="col">Name</th>
+      <th scope="col">hospitalname</th>
+      <th scope="col">Ph.No</th>
+	  <th scope="col">Details</th>
+    </tr>
+	
+	
+	{% for t in objectlist %}
+	<tr>
+			
+				<td>{{t.name}}</td>
+				<td>{{ t.gender }}</td>
+				<td>{{ t.ph }}</td>
+				<td><a href="{% url 'detail' t.id %}" class="btn btn-info">View more</a>
+				<a href="{% url 'update' t.id %}"class="btn btn-primary">update</a>
+				<a href="{% url 'delete' t.id %}"class="btn btn-danger">Delete</a></td>
+			
+			
+	</tr>
+	
+	{% endfor %}
+	
+	
+	
+	
+	
+	
+	
+  </thead>
+	
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+	
